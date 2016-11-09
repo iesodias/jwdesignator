@@ -1,0 +1,6 @@
+.env
+.idea
+.jwdesignator
+*.sqlite3
+*pyc
+__pycache__
