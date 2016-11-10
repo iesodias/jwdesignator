@@ -16,8 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from designator.core import views as designator_views
+from designator.publishers import views
 
 urlpatterns = [
     url(r'^$', designator_views.home),
+    url(r'^cadastro/$', views.publisher),
     url(r'^admin/', admin.site.urls),
 ]
