@@ -1,23 +1,22 @@
 from django.test import TestCase
-from designator.publishers.forms import PublisherForm
+from designator.groups.forms import GroupForm
 
-class SubscribePublishers(TestCase):
+class SubscriptionGroup(TestCase):
+
     def setUp(self):
-        self.resp = self.client.get('/cadastro/')
+        self.resp = self.client.get('/grupos/')
 
-    """get /publishers/ must return status 200"""
     def test_get(self):
         self.assertEqual(200, self.resp.status_code)
 
     def test_template(self):
-        self.assertTemplateUsed(self.resp, 'publishers/cadastro_form.html')
+        self.assertTemplateUsed(self.resp, 'groups/groups_form.html')
 
     def test_html(self):
         """HTML must contain inputs tags"""
         self.assertContains(self.resp, '<form')
-        self.assertContains(self.resp, '<input', 6)
+        self.assertContains(self.resp, '<input', 5)
         self.assertContains(self.resp, 'type="text"', 3)
-        self.assertContains(self.resp, 'type="email"')
         self.assertContains(self.resp, 'type="submit"')
 
     def test_csrf(self):
@@ -25,8 +24,8 @@ class SubscribePublishers(TestCase):
 
     def test_has_form(self):
         form = self.resp.context['form']
-        self.assertIsInstance(form, PublisherForm)
+        self.assertIsInstance(form, GroupForm)
 
     def test_form_has_fields(self):
         form = self.resp.context['form']
-        self.assertSequenceEqual(['name','address','phone','email','gender','designation','group','car'], list(form.fields))
+        self.assertSequenceEqual(['name','address','sup_group'], list(form.fields))

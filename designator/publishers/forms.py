@@ -1,24 +1,25 @@
 from django import forms
 
 choice_gender = (
-    ('0', ''),
+    ('0', '----'),
     ('1', 'Masculino'),
     ('2', 'Feminino'),
 )
 
 choice_designation = (
-    ('1', ''),
+    ('1', '----'),
     ('2', 'Ancião'),
     ('3', 'Servo Ministerial'),
 )
 
 #Criar uma queryset para buscar no cadastro de grupos
 choice_group = (
-    ('1', 'Make a Queryset'),
+    ('1', '----'),
+    ('2', 'Make a Queryset'),
 )
 
 choice_car = (
-    ('1', ''),
+    ('1', '----'),
     ('2', 'Sim'),
     ('3', 'Não'),
 )

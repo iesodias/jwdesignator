@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from designator.core import views as designator_views
-from designator.publishers import views
+from designator.publishers import views as publishers_views
+from designator.groups import views as groups_views
 
 urlpatterns = [
     url(r'^$', designator_views.home),
-    url(r'^cadastro/$', views.publisher),
+    url(r'^cadastro/$', publishers_views.publisher),
+    url(r'^grupos/$', groups_views.group),
     url(r'^admin/', admin.site.urls),
 ]

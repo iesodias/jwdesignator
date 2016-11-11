@@ -1,0 +1,22 @@
+<h1>Formulário de Cadastro de Grupos</h1>
+<form action="." method="post">
+    {% csrf_token %}
+    <p>
+        <label for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
+        {{ form.name.errors }}
+        {{ form.name }}
+    </p>
+
+    <p>
+        <label for="{{ form.address.id_for_label }}">{{ form.address.label }}:</label>
+        {{ form.address.errors }}
+        {{ form.address }}
+    </p>
+
+    <p>
+        <label for="{{ form.sup_group.id_for_label }}">{{ form.sup_group.label }}:</label>
+        {{ form.sup_group.errors }}
+        {{ form.sup_group }}
+    </p>
+    <input type="submit" value="Cadastrar"/>
+</form>
