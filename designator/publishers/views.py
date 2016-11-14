@@ -2,6 +2,8 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from designator.publishers.forms import PublisherForm
+from designator.publishers.models import Publisher
+
 
 def publisher(request):
     if request.method == 'POST':
@@ -12,13 +14,15 @@ def publisher(request):
 def create(request):
         form = PublisherForm(request.POST)
         if form.is_valid():
+            Publisher.objects.create(**form.cleaned_data)
+
             messages.success(request,'Cadastro realizado com sucesso!')
+
             return HttpResponseRedirect('/cadastro/')
         else:
-            return render(request, 'publishers/cadastro_form.html', {'form':form})
+            return render(request, 'publishers/cadastro_form.html', {'form': form})
+
 
 def new(request):
         return render(request, 'publishers/cadastro_form.html',
                       {'form': PublisherForm()})
-
-

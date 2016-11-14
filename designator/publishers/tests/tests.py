@@ -15,8 +15,8 @@ class SubscribePublishers(TestCase):
     def test_html(self):
         """HTML must contain inputs tags"""
         self.assertContains(self.resp, '<form')
-        self.assertContains(self.resp, '<input', 6)
-        self.assertContains(self.resp, 'type="text"', 3)
+        self.assertContains(self.resp, '<input', 10)
+        self.assertContains(self.resp, 'type="text"', 7)
         self.assertContains(self.resp, 'type="email"')
         self.assertContains(self.resp, 'type="submit"')
 
@@ -33,8 +33,8 @@ class SubscribePublishers(TestCase):
 
 class PublishersPostTest(TestCase):
     def setUp(self):
-        data = dict(name='Ieso Dias', address='Rua Modestino Eloy', phone='31992323628', email='iesodias@gmail.com',
-                    gender='Masculino', designation='Ancião', group='Make a Queryset', car='Sim')
+        data = dict(name='Ieso Dias', address='Rua Italia', phone='31985697523', email='teste@gmail.com',
+                    gender='Masculino', designation='Teste', group='Make a Queryset', car='Sim')
         self.resp = self.client.post('/cadastro/', data)
 
     def test_post(self):
@@ -43,7 +43,7 @@ class PublishersPostTest(TestCase):
 
 class CadastroMessageSuccess(TestCase):
     def test_message(self):
-        data = dict(name='Ieso Dias', address='Rua Modestino Eloy', phone='31992323628', email='iesodias@gmail.com',
+        data = dict(name='Ieso Dias', address='Rua Italia', phone='31985697523', email='teste@gmail.com',
                     gender='Masculino', designation='Ancião', group='Make a Queryset', car='Sim')
         response = self.client.post('/cadastro/', data, fallow=True)
         self.assertContains(response, 'Cadastro realizado com sucesso!')

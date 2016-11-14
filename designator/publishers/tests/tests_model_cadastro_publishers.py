@@ -5,11 +5,11 @@ class PublishersCadastroTest(TestCase):
     def test_create(self):
         obj = Publisher(
             name='Ieso Dias',
-            address='Rua Modestino Eloy',
-            phone='31992323628',
-            email='iesodias@gmail.com',
+            address='Rua Italia',
+            phone='31985697523',
+            email='teste@gmail.com',
             gender='Masculino',
-            designation='Ancião',
+            designation='Teste',
             group='Make a Queryset',
             car='Sim'
         )
