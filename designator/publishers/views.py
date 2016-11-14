@@ -14,14 +14,11 @@ def publisher(request):
 def create(request):
         form = PublisherForm(request.POST)
         if form.is_valid():
-            Publisher.objects.create(**form.cleaned_data)
-
             messages.success(request,'Cadastro realizado com sucesso!')
-
+            Publisher.objects.create(**form.cleaned_data)
             return HttpResponseRedirect('/cadastro/')
         else:
             return render(request, 'publishers/cadastro_form.html', {'form': form})
-
 
 def new(request):
         return render(request, 'publishers/cadastro_form.html',

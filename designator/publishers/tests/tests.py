@@ -45,5 +45,5 @@ class CadastroMessageSuccess(TestCase):
     def test_message(self):
         data = dict(name='Ieso Dias', address='Rua Italia', phone='31985697523', email='teste@gmail.com',
                     gender='Masculino', designation='Ancião', group='Make a Queryset', car='Sim')
-        response = self.client.post('/cadastro/', data, fallow=True)
+        response = self.client.post('/cadastro/', data, follow=True)
         self.assertContains(response, 'Cadastro realizado com sucesso!')
