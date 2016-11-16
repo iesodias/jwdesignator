@@ -10,5 +10,3 @@ class Cadastro_Post_Valid(TestCase):
 class Cadastro_Post_Invalid(TestCase):
     def test_dont_save_publisher(self):
         self.assertFalse(Publisher.objects.exists())
-
-        #M3A03: Tem uma forma melhor para acompanhar as inscrições? 12:34 video WTTD

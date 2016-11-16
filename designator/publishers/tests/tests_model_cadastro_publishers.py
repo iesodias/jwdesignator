@@ -2,9 +2,9 @@ from django.test import TestCase
 from designator.publishers.models import Publisher
 
 class PublishersCadastroTest(TestCase):
-    def test_create(self):
-        obj = Publisher(
-            name='Ieso Dias',
+    def setUp(self):
+        self.obj = Publisher(
+            name='Ieso',
             address='Rua Italia',
             phone='31985697523',
             email='teste@gmail.com',
@@ -13,5 +13,10 @@ class PublishersCadastroTest(TestCase):
             group='Make a Queryset',
             car='Sim'
         )
-        obj.save()
+        self.obj.save()
+
+    def test_create(self):
         self.assertTrue(Publisher.objects.exists())
+
+    def test_str(self):
+        self.assertEqual('Ieso', str(self.obj))

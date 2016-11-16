@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'test_without_migrations',
     'designator.core',
-    'designator.publishers',
+    'designator.publishers.apps.PublishersConfig',
     'designator.groups',
 ]
 
